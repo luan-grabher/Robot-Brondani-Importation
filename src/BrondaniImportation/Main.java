@@ -17,11 +17,35 @@ public class Main {
 
     public static String testParameters = "";
 
+    /**
+     * Pega na apsta do mes arquivos txt 'filial', 'matriz' e 'viamão'
+     * <p>
+     * Junta texto dos arquivos txt em uma variavel
+     * <p>
+     * Transforma texto dos arquivos txt em mapa com a class CSV
+     * <p>
+     * Pega o arquivo de contas csv, salvo na escrituração mensal.
+     * Transforma o texto do arquivo de contas em um mapa com a chave igual a
+     * conta contabil da brondani e o valor a conta contabil da moresco.
+     * <p>
+     * Percorre mapa dos arquivos txt
+     * ----Cria String conforme layout de importacao no unico com as colunas do
+     * txt.
+     * ----Nas contas de debito e credito busca no mapa das contas, se nao
+     * existir, coloca aviso no log e adiciona conta que falta dentro do arquivo
+     * csv.
+     * <p>
+     * Se o log nao estiver vazio, retorna o aviso para completar o arquivo csv
+     * e onde ele esta localizado.
+     * Se não tiver faltado nenhuma conta, cria o arquivo txt com o texto do
+     * layout de importação do unico na pasta dos arquivos e retorna aviso que
+     * salvou o arquivo de importação.
+     */
     public static void main(String[] args) {
         try {
             AppRobo robo = new AppRobo(nomeApp);
             robo.definirParametros();
-            
+
             if (args.length > 0 && args[0].equals("test")) {
                 robo.definirParametros(testParameters);
             }
@@ -55,10 +79,9 @@ public class Main {
         return sw.toString();
     }
 
-
     public static String start(int mes, int ano) {
         Map<String, Executavel> execs = new LinkedHashMap<>();
-        execs.put("Procurando arquivo X", new Executavel());       
+        execs.put("Procurando arquivo X", new Executavel());
 
         return AppRobo.rodarExecutaveis(nomeApp, execs);
     }
