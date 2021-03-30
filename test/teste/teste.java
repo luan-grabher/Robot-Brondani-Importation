@@ -1,6 +1,6 @@
 package teste;
 
-import ContabilityTemplateImportation.Main;
+import BrondaniImportation.Main;
 
 public class teste {
 
