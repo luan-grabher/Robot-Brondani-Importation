@@ -103,12 +103,12 @@ public class Control {
                     importationText.append("\r\n");
                     importationText.append(
                             getImportRow(
-                                    map.get("empresa"),
+                                    ini.get("Empresas", map.get("empresa")),
                                     date,
                                     debit,
                                     credit,
                                     map.get("historico"),
-                                    map.get("value1") + "," + map.get("value2")
+                                    map.get("valor1") + "," + map.get("valor2")
                             )
                     );
                 }
