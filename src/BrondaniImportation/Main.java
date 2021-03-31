@@ -12,8 +12,8 @@ import org.ini4j.Ini;
 
 public class Main {
 
-    public static File accountsFile = new File("G:\\Contábil\\Clientes\\Brondani Auto Peças Ltda\\Escrituração Mensal\\contas.csv");
-    public static String folderPath = "G:\\Contábil\\Clientes\\Brondani Auto Peças Ltda\\Escrituração Mensal\\:ano\\Movimento\\:mes.:ano";
+    public static File accountsFile = new File("\\\\heimerdinger\\docs\\Contábil\\Clientes\\Brondani Auto Peças Ltda\\Escrituração Mensal\\contas.csv");
+    public static String folderPath = "\\\\heimerdinger\\docs\\Contábil\\Clientes\\Brondani Auto Peças Ltda\\Escrituração Mensal\\:ano\\Movimento\\:mes.:ano";
     public static File folder;
     public static Integer mes = 1;
     public static Integer ano = 2021;
