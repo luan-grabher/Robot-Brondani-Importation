@@ -12,35 +12,17 @@ import org.ini4j.Ini;
 
 public class Main {
 
+    public static File accountsFile = new File("G:\\Contábil\\Clientes\\Brondani Auto Peças Ltda\\Escrituração Mensal\\contas.csv");
+    public static String folderPath = "G:\\Contábil\\Clientes\\Brondani Auto Peças Ltda\\Escrituração Mensal\\:ano\\Movimento\\:mes.:ano";
+    public static File folder;
+    public static Integer mes = 1;
+    public static Integer ano = 2021;
+
     private static String nomeApp = "";
-    private static Ini ini = null;
+    public static Ini ini = null;
 
     public static String testParameters = "";
 
-    /**
-     * Pega na apsta do mes arquivos txt 'filial', 'matriz' e 'viamão'
-     * <p>
-     * Junta texto dos arquivos txt em uma variavel
-     * <p>
-     * Transforma texto dos arquivos txt em mapa com a class CSV
-     * <p>
-     * Pega o arquivo de contas csv, salvo na escrituração mensal.
-     * Transforma o texto do arquivo de contas em um mapa com a chave igual a
-     * conta contabil da brondani e o valor a conta contabil da moresco.
-     * <p>
-     * Percorre mapa dos arquivos txt
-     * ----Cria String conforme layout de importacao no unico com as colunas do
-     * txt.
-     * ----Nas contas de debito e credito busca no mapa das contas, se nao
-     * existir, coloca aviso no log e adiciona conta que falta dentro do arquivo
-     * csv.
-     * <p>
-     * Se o log nao estiver vazio, retorna o aviso para completar o arquivo csv
-     * e onde ele esta localizado.
-     * Se não tiver faltado nenhuma conta, cria o arquivo txt com o texto do
-     * layout de importação do unico na pasta dos arquivos e retorna aviso que
-     * salvou o arquivo de importação.
-     */
     public static void main(String[] args) {
         try {
             AppRobo robo = new AppRobo(nomeApp);
@@ -55,9 +37,14 @@ public class Main {
 
             ini = new Ini(FileManager.getFile(iniPath + iniName + ".ini"));
 
-            int mes = Integer.valueOf(robo.getParametro("mes"));
+            mes = Integer.valueOf(robo.getParametro("mes"));
             mes = mes >= 1 && mes <= 12 ? mes : 1;
-            int ano = Integer.valueOf(robo.getParametro("ano"));
+            ano = Integer.valueOf(robo.getParametro("ano"));
+
+            //Arruma pasta
+            folderPath = folderPath.replaceAll(":ano", ano.toString());
+            folderPath = folderPath.replaceAll(":mes", (mes < 10 ? "0" : "") + mes);
+            folder = new File(folderPath);
 
             nomeApp = "Importação Brondani - " + ini.get("Config", "nome") + " " + mes + "/" + ano;
 
@@ -81,7 +68,9 @@ public class Main {
 
     public static String start(int mes, int ano) {
         Map<String, Executavel> execs = new LinkedHashMap<>();
-        execs.put("Procurando arquivo X", new Executavel());
+        execs.put("Pegar arquivo de contas na Escrituração Mensal", new Control.getAccounts());
+        execs.put("Pegar arquivos na pasta do mes", new Control.getFiles());
+        execs.put("Criar arquivo de importação", new Control.createImportationFile());
 
         return AppRobo.rodarExecutaveis(nomeApp, execs);
     }
