@@ -32,7 +32,7 @@ public class Main {
                 robo.definirParametros(testParameters);
             }
 
-            String iniPath = "";
+            String iniPath = "\\\\Zac\\Robos\\Tarefas\\Empresas\\Brondani\\";
             String iniName = robo.getParametro("ini");
 
             ini = new Ini(FileManager.getFile(iniPath + iniName + ".ini"));
