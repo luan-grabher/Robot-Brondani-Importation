@@ -46,7 +46,7 @@ public class Main {
             folderPath = folderPath.replaceAll(":mes", (mes < 10 ? "0" : "") + mes);
             folder = new File(folderPath);
 
-            nomeApp = "Importação Brondani - " + ini.get("Config", "nome") + " " + mes + "/" + ano;
+            nomeApp = "Importação Brondani - " + mes + "/" + ano;
 
             robo.setNome(nomeApp);
             robo.executar(start(mes, ano));
