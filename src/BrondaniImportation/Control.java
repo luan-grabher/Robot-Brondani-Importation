@@ -7,6 +7,7 @@ import static BrondaniImportation.Main.ini;
 import static BrondaniImportation.Main.mes;
 import Entity.Executavel;
 import Entity.Warning;
+import Robo.View.roboView;
 import fileManager.CSV;
 import fileManager.FileManager;
 import fileManager.Selector;
@@ -86,19 +87,22 @@ public class Control {
             //Para cada importação
             toImport.forEach((map) -> {
                 //empresa;ignora;data;debito;credito;valor1;valor2;ignora;historico
+                String debitBrondani = map.getOrDefault("debito", "0");
+                String creditBrondani = map.getOrDefault("credito", "0");
 
-                String debit = accounts.get(map.get("debito"));
-                String credit = accounts.get(map.get("credito"));
+                String debit = accounts.get(debitBrondani);
+                String credit = accounts.get(creditBrondani);
+                
 
                 String day = map.get("data").replaceAll(mesano, "");
                 String date = day + "/" + mesStr + "/" + ano;
 
                 if (debit == null) {
-                    accountsNotFind.put(debit, debit);
-                    log.append("A contas de Debito ").append(debit).append(" não foi encontrada no arquivo de contas.\n");
+                    accountsNotFind.put(debitBrondani, debitBrondani);
+                    log.append("A contas de Debito ").append(debitBrondani).append(" não foi encontrada no arquivo de contas: ").append(roboView.link(accountsFile)).append(".\n");
                 } else if (credit == null) {
-                    accountsNotFind.put(credit, credit);
-                    log.append("A contas de Credito ").append(credit).append(" não foi encontrada no arquivo de contas.\n");
+                    accountsNotFind.put(creditBrondani, creditBrondani);
+                    log.append("A contas de Credito ").append(creditBrondani).append(" não foi encontrada no arquivo de contas: ").append(roboView.link(accountsFile)).append(".\n");
                 } else if (log.length() == 0) {
                     importationText.append("\r\n");
                     importationText.append(
@@ -134,7 +138,7 @@ public class Control {
     }
 
     /**
-     * Cria linha de importação para o csv com as informações
+     * Cria linha de importação em csv para o Unico com as informações
      *
      *
      * @param enterprise Empresa
