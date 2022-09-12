@@ -12,8 +12,8 @@ import org.ini4j.Ini;
 
 public class Main {
 
-    public static File accountsFile = new File("\\\\heimerdinger\\docs\\Contábil\\Clientes\\Brondani Auto Peças Ltda\\Escrituração Mensal\\contas.csv");
-    public static String folderPath = "\\\\heimerdinger\\docs\\Contábil\\Clientes\\Brondani Auto Peças Ltda\\Escrituração Mensal\\:ano\\Movimento\\:mes.:ano";
+    public static String folderPath;
+    public static File accountsFile;
     public static File folder;
     public static Integer mes = 1;
     public static Integer ano = 2021;
@@ -32,17 +32,18 @@ public class Main {
                 robo.definirParametros(testParameters);
             }
 
-            String iniPath = "\\\\Zac\\Robos\\Tarefas\\Empresas\\Brondani\\";
-            String iniName = robo.getParametro("ini");
+            String iniPath = "BrondaniImportation.ini";
 
-            ini = new Ini(FileManager.getFile(iniPath + iniName + ".ini"));
+            ini = new Ini(FileManager.getFile(iniPath));
 
             mes = Integer.valueOf(robo.getParametro("mes"));
             mes = mes >= 1 && mes <= 12 ? mes : 1;
             ano = Integer.valueOf(robo.getParametro("ano"));
 
-            //Arruma pasta
-            folderPath = folderPath.replaceAll(":ano", ano.toString());
+            accountsFile = new File(ini.get("Pastas", "accountsFile"));
+
+            // Arruma pasta
+            folderPath = ini.get("Pastas", "folderPath").replaceAll(":ano", ano.toString());
             folderPath = folderPath.replaceAll(":mes", (mes < 10 ? "0" : "") + mes);
             folder = new File(folderPath);
 

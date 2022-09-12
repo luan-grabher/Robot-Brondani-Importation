@@ -41,7 +41,8 @@ public class Control {
                     finalText.append("\r\n");
                     finalText.append(FileManager.getText(file).replaceAll(",", ";").replaceAll("\"", ""));
                 } else {
-                    throw new Error("O arquivo " + fileName + " não foi encontrado na pasta:\n" + folder.getAbsolutePath());
+                    throw new Error(
+                            "O arquivo " + fileName + " não foi encontrado na pasta:\n" + folder.getAbsolutePath());
                 }
             }
 
@@ -84,25 +85,28 @@ public class Control {
 
             StringBuilder importationText = new StringBuilder("#IMPORTAÇÃO ZAC");
 
-            //Para cada importação
+            // Para cada importação
             toImport.forEach((map) -> {
-                //empresa;ignora;data;debito;credito;valor1;valor2;ignora;historico
+                // empresa;ignora;data;debito;credito;valor1;valor2;ignora;historico
                 String debitBrondani = map.getOrDefault("debito", "0");
                 String creditBrondani = map.getOrDefault("credito", "0");
 
                 String debit = accounts.get(debitBrondani);
                 String credit = accounts.get(creditBrondani);
-                
 
                 String day = map.get("data").replaceAll(mesano, "");
                 String date = day + "/" + mesStr + "/" + ano;
 
                 if (debit == null) {
                     accountsNotFind.put(debitBrondani, debitBrondani);
-                    log.append("A contas de Debito ").append(debitBrondani).append(" não foi encontrada no arquivo de contas: ").append(roboView.link(accountsFile)).append(".\n");
+                    log.append("A contas de Debito ").append(debitBrondani)
+                            .append(" não foi encontrada no arquivo de contas: ").append(roboView.link(accountsFile))
+                            .append(".\n");
                 } else if (credit == null) {
                     accountsNotFind.put(creditBrondani, creditBrondani);
-                    log.append("A contas de Credito ").append(creditBrondani).append(" não foi encontrada no arquivo de contas: ").append(roboView.link(accountsFile)).append(".\n");
+                    log.append("A contas de Credito ").append(creditBrondani)
+                            .append(" não foi encontrada no arquivo de contas: ").append(roboView.link(accountsFile))
+                            .append(".\n");
                 } else if (log.length() == 0) {
                     importationText.append("\r\n");
                     importationText.append(
@@ -112,13 +116,11 @@ public class Control {
                                     debit,
                                     credit,
                                     map.get("historico"),
-                                    map.get("valor1") + "," + map.get("valor2")
-                            )
-                    );
+                                    map.get("valor1") + "," + map.get("valor2")));
                 }
             });
 
-            //Se nao tiver log cria arquivp, se nao cria log
+            // Se nao tiver log cria arquivp, se nao cria log
             if (log.length() == 0) {
                 FileManager.save(folder, "importacao.csv", importationText.toString());
                 throw new Warning("Arquivo 'importacao.csv' salvo na pasta:\n" + folder.getPath());
@@ -142,24 +144,25 @@ public class Control {
      *
      *
      * @param enterprise Empresa
-     * @param date data no formato normal
-     * @param debit debito
-     * @param credit credito
-     * @param history historico
-     * @param value valor
+     * @param date       data no formato normal
+     * @param debit      debito
+     * @param credit     credito
+     * @param history    historico
+     * @param value      valor
      * @return
      */
-    private static String getImportRow(String enterprise, String date, String debit, String credit, String history, String value) {
+    private static String getImportRow(String enterprise, String date, String debit, String credit, String history,
+            String value) {
         StringBuilder row = new StringBuilder();
 
         row.append(enterprise).append(";");
-        row.append("").append(";"); //part credit
-        row.append("").append(";"); //part debit
-        row.append(date).append(";"); //part debit
+        row.append("").append(";"); // part credit
+        row.append("").append(";"); // part debit
+        row.append(date).append(";"); // part debit
         row.append(debit).append(";");
         row.append(credit).append(";");
-        row.append("").append(";"); //documento
-        row.append("80").append(";"); //historico padrao
+        row.append("").append(";"); // documento
+        row.append("80").append(";"); // historico padrao
         row.append(history).append(";");
         row.append(value);
 
