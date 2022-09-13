@@ -51,6 +51,10 @@ public class Main {
 
             robo.setNome(nomeApp);
             robo.executar(start(mes, ano));
+        } catch (Error e) {
+            e.printStackTrace();
+            FileManager.save(new File(System.getProperty("user.home")) + "\\Desktop\\JavaError.txt", e.getMessage());
+            System.out.println("Ocorreu um erro na aplicação: " + e);
         } catch (Exception e) {
             e.printStackTrace();
             FileManager.save(new File(System.getProperty("user.home")) + "\\Desktop\\JavaError.txt", getStackTrace(e));
