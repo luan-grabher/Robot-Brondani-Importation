@@ -32,7 +32,7 @@ public class Main {
                 robo.definirParametros(testParameters);
             }
 
-            String iniPath = "BrondaniImportation.ini";
+            String iniPath = "./BrondaniImportation.ini";
 
             ini = new Ini(FileManager.getFile(iniPath));
 
@@ -55,8 +55,9 @@ public class Main {
             e.printStackTrace();
             FileManager.save(new File(System.getProperty("user.home")) + "\\Desktop\\JavaError.txt", getStackTrace(e));
             System.out.println("Ocorreu um erro na aplicação: " + e);
-            System.exit(0);
         }
+
+        System.exit(0);
     }
 
     private static String getStackTrace(Exception e) {
