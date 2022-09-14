@@ -18,7 +18,7 @@ public class Main {
     public static Integer mes = 1;
     public static Integer ano = 2021;
 
-    private static String nomeApp = "";
+    private static String nomeApp = "Importação Brondani";
     public static Ini ini = null;
 
     public static String testParameters = "";
@@ -31,27 +31,32 @@ public class Main {
             if (args.length > 0 && args[0].equals("test")) {
                 robo.definirParametros(testParameters);
             }
+            
+            try {                                         
+                mes = Integer.valueOf(robo.getParametro("mes"));
+                mes = mes >= 1 && mes <= 12 ? mes : 1;
+                ano = Integer.valueOf(robo.getParametro("ano"));
+                
+                System.out.println("Working Directory = " + System.getProperty("user.dir"));
+                String iniPath = "BrondaniImportation.ini";
+                ini = new Ini(FileManager.getFile(iniPath));
 
-            System.out.println("Working Directory = " + System.getProperty("user.dir"));
-            String iniPath = "BrondaniImportation.ini";
+                accountsFile = new File(ini.get("Pastas", "accountsFile"));
 
-            ini = new Ini(FileManager.getFile(iniPath));
+                // Arruma pasta
+                folderPath = ini.get("Pastas", "folderPath").replaceAll(":ano", ano.toString());
+                folderPath = folderPath.replaceAll(":mes", (mes < 10 ? "0" : "") + mes);
+                folder = new File(folderPath);
 
-            mes = Integer.valueOf(robo.getParametro("mes"));
-            mes = mes >= 1 && mes <= 12 ? mes : 1;
-            ano = Integer.valueOf(robo.getParametro("ano"));
+                nomeApp = "Importação Brondani - " + mes + "/" + ano;
 
-            accountsFile = new File(ini.get("Pastas", "accountsFile"));
-
-            // Arruma pasta
-            folderPath = ini.get("Pastas", "folderPath").replaceAll(":ano", ano.toString());
-            folderPath = folderPath.replaceAll(":mes", (mes < 10 ? "0" : "") + mes);
-            folder = new File(folderPath);
-
-            nomeApp = "Importação Brondani - " + mes + "/" + ano;
-
-            robo.setNome(nomeApp);
-            robo.executar(start(mes, ano));
+                robo.setNome(nomeApp);
+                robo.executar(start(mes, ano));
+            } catch (Error e) {
+                robo.executar(e.getMessage());
+            } catch (Exception e) {
+                robo.executar(getStackTrace(e));
+            }
         } catch (Error e) {
             e.printStackTrace();
             FileManager.save(new File(System.getProperty("user.home")) + "\\Desktop\\JavaError.txt", e.getMessage());
