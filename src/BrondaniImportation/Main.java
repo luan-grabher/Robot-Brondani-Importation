@@ -32,7 +32,8 @@ public class Main {
                 robo.definirParametros(testParameters);
             }
 
-            String iniPath = "./BrondaniImportation.ini";
+            System.out.println("Working Directory = " + System.getProperty("user.dir"));
+            String iniPath = "BrondaniImportation.ini";
 
             ini = new Ini(FileManager.getFile(iniPath));
 
