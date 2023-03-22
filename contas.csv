@@ -1,0 +1,176 @@
+#brondani;moresco;nome
+0;0;0
+1110101;1119;Caixa Cofre
+1110102;1121;Caixa Vendas
+1110103;1120;Caixa Oficinas
+1110104;1122;Transferencia Matriz Filial
+1110201;1124;Banco Brasil RJ 16919-6
+1110204;1127;Banco Banrisul Filial 0616477904
+1110205;1128;Banrisul RJ
+1110209;1130;Caixa Economica Eederal - Cartoe
+1110213;1125;Sicredi Filial 90496-1
+1110214;1129;Caixa Econ Federal 363-2
+1110215;1126;Banrisul 06.1735240-4 Matriz
+1110216;1123;Banco Brasil 116919-x
+1110301;12;Banco do Brasil Aplicacao
+1110308;1131;Sicredi Filial Aplicacao
+1120101;18;Duplicatas a Receber Clientes
+1120102;660;Cartoes a Receber
+1120402;43;IRPJ A COMPENSAR
+1120403;46;PIS a Recuperar
+1120404;47;COFINS a Recuperar
+1120405;48;CSLL a Recuperar
+1120406;49;ISS a recuperar
+1120501;1257;Cheques a Receber
+1120503;1258;Cheques Devolvidos
+1120601;37;Adiantamento a Fornecedores
+1120602;33;Adiantamento DE Salarios
+1120603;39;Adiantamento de Férias
+1120604;38;Adiantamento 13? Salario
+1130101;55;EStoque Mercadorias P/Revenda
+1130103;874;Transferencia
+1220102;92;Titulo Capitalizacao Ourocap BB
+1310301;1268;Consorcios
+1320106;656;Aparelhos telefonicos
+1320107;103;Computadores Perifericos
+1320110;692;Instala?oes
+2110101;150;Fornecedores de Mercadoria
+2110102;150;Outros Fornecedores
+2110301;215;Adiantamentos de Clientes
+2110401;206;Energia Eletrica a Pagar
+2110402;1003;Telefone a Pagar
+2110404;213;Alugueis a Pagar
+2110405;685;Contas a Pagar
+2110501;160;Salarios a Pagar
+2110503;162;Rescisoes a Pagar
+2110505;163;13? Salario a Pagar
+2110506;165;Pensao Alimenticia a Pagar
+2110601;185;IRRF a Recolher
+2110602;171;INSS a Recolher
+2110603;172;FGTS a Recolher
+2110604;173;Cont. Sindical a Recolher
+2110701;195;ICMS a Pagar
+2110702;197;PIS a Pagar
+2110703;196;COFINS a Pagar
+2110706;201;ISS a Pagar
+2110906;1139;Emprestimo Caixa Federal
+2110908;1144;Emprestimo Proger Banco Brasil
+2210106;1150;Financiamento Proger BB LP
+2210109;1162;Fornecedores LP
+3110101;1063;Venda Balcao a Vista
+3110102;1064;Venda Balcao a Prazo
+3110103;1065;Venda Oficina a Vista
+3110104;1066;Venda Oficina a Prazo
+3110201;268;Vendas de Servicos a Vista
+3110202;270;Vendas de Servicos a Prazo
+3110301;274;Devolucao de Vendas
+3110302;277;ICMS
+3110309;283;ISS
+3120101;296;Juros Recebidos
+3120102;297;Descontos Obtidos
+3120103;292;Rendimentos de Aplicacoes
+3120104;307;Bonificacoes Recebidas
+3120106;1292;Multas Recebidas
+3120107;1063;Outras Receitas Operacionais
+4110101;447;Custo Servi?os Terceiros
+4110102;1160;Custo com Garantias
+4110103;1158;Guincho
+4110104;1159;Lavagem
+4110201;341;CMV Custo da Mercadoria Vendida
+4210101;460;13? Salario
+4210102;1305;Assistencia Medica
+4210103;461;Aviso Previo
+4210104;1195;Convenio Alimentacao
+4210105;465;Convenio Transportes
+4210106;490;Cursos e Treinamento
+4210108;1115;Exames Medicos
+4210109;459;Ferias e Abonos
+4210110;468;FGTS
+4210111;458;Horas Extras
+4210112;461;Indenizações Trabalh
+4210113;469;Multa Rescisoria FGT
+4210114;467;Previdencia Social
+4210115;1195;Ressarcimento Conv Alimentacao
+4210116;465;Ressarciemento Conv Transportes
+4210118;456;Salarios
+4210119;504;Uniformes Equipamentos Seguran?a
+4210123;1107;Estagio
+4210201;473;Alugueis e condominios
+4210204;481;Manutencao e Reparos
+4210301;474;Agua
+4210302;475;Energia Eletrica
+4210303;497;Seguros
+4210304;491;Telefones
+4210401;1289;Honorßrios Jur?dico contabil
+4210402;457;Pro-labore
+4210403;489;Servicos de terceiros p/jur?dica
+4210404;1117;Servicos de vigil?ncia
+4210501;1228;Assinaturas, mensalidades e anui
+4210502;672;Assistencia informßtica
+4210503;493;Bens de pequeno valor
+4210506;1202;Despesas c/veiculos
+4210508;655;Entidades de classe
+4210509;498;Lanches e refeicoes
+4210510;1267;Legais e judiciais
+4210513;1398;Manuten?cao Maquinas Equipamento
+4210514;478;Material de Expediente
+4210515;480;Material Expediente Informatica
+4210516;479;Material de Limpeza e Consumo
+4210517;1269;Outras despesas
+4210518;482;Portes e telegramas
+4210601;641;Impostos e Taxas Mun
+4210602;573;IPTU
+4210603;574;IPVA
+4210604;674;Multas
+4210605;1399;Multas de transito
+4210701;526;Brindes
+4210702;527;Combustivel
+4210704;539;Despesas c/ fretes vendas
+4210705;538;Eventos e congressos
+4210706;549;Propaganda e publicidade
+4210801;564;Descontos Concedidos
+4210802;1265;Despesas com cobrancas
+4210803;565;Despesas Tarifas Bancarias
+4210804;571;IOF
+4210805;568;Juros Bancarios
+4210806;563;Juros Pagos
+4210809;1306;Despesas Aluguel POS CArtoes
+4210812;1304;Taxas Administradoras
+4210902;1266;Perdas Eventuais
+4220101;1291;Indenização para Cli
+4230101;1261;Despesas Não Dedutív
+2110709;991;IPTU a Pagar
+1120103;1493;Antecipacao de Cartoes
+1110217;1547;CREDITO BANCO ITAU FILIAL C/C
+4110105;1549;GELSON PERES PAIM GARCIA
+4110202;539;VANSUL TRANSPORTES ROD
+2210201;1164;EMPRESTIMO DE SOCIO
+4220104;1266;RECEBIMENTO DUPLICATA PERDA CLIENTE DPL:
+1320105;102;VEICULOS
+3110303;278;PIS
+3110304;279;COFINS
+2210101;1145;PROGER
+4210505;503;COPA E COZINHA
+3210101;1216;VENDA DE BEM IMOBILIZADO
+3110311;1372;ICMS ST
+2210104;1152;CAIXA CARTOES
+2210102;1146;BANRISUL RJ
+2210103;1145;BB RJ
+2210108;1150;SICREDI
+1110218;1551;BANCO SAFRA
+1110200;1553;Safra Filial Zona sul
+1110219;1554;Safra Filial Viamão
+4210512;1555;Manutenção de Informática
+2110801;176;provisão de férias
+2110504;161;férias a pagar
+1110309;1131;aplicação sicredi
+1310102;1558;cressol - siscoper
+2110914;1561;cressol conta arantida
+1110221;1560;cressol
+4210807;563;juros antecipação cartão
+1210101;1509;contas a receber
+2110915;1323;ITAU CONTA GARANTIDA
+4210707;497;VIAGENS E ESTADIAS
+2110916;1562;ITAU CONTA GARANTIDA D
+1320111;1268;
+1110313;1566;

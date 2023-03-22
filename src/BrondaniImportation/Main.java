@@ -21,7 +21,7 @@ public class Main {
     private static String nomeApp = "Importação Brondani";
     public static Ini ini = null;
 
-    public static String testParameters = "";
+    public static String testParameters = "[mes:1][ano:2021]";
 
     public static void main(String[] args) {
         try {
